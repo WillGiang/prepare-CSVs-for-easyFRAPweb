@@ -1,6 +1,24 @@
 # prepare-CSVs-for-easyFRAPweb
 
+## Installation
 Clone the repository and create the conda environment with the provided environment.yml file using the instructions [here]( https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file).
+
+
+## Usage
+1. Open Anaconda Prompt
+2. Activate the conda environment called pandas
+```
+conda activate pandas
+```
+3. Navigate to where your directory is. You may need to change from the `C:` drive to the `D:` drive first which can be done by entering:
+```
+D:
+```
+before using `cd` to change directories. For example:
+```
+cd D:\Will\2022-07-12_prepare-FRAP-csv
+```
+4. Run the Python script with your directory paths and parameters.
 
 ```
 (pandas) D:\Will>python prepareCSVforeasyFRAP.py -h
