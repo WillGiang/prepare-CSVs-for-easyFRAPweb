@@ -37,12 +37,15 @@ options:
 
 ### Examples
 Example without a bleaching frame:
+
 `(pandas) D:\Will\2022-07-12_prepare-FRAP-csv>python prepareCSVforeasyFRAP.py --inputDir .\02-CSVs_from_Fiji\WT\ --outputDir .\03-CSVs_processed_for_easyFRAPweb\WT\`
 
 
 Example with a bleaching frame on after three pre-bleach timepoints:
+
 `(pandas) D:\Will\2022-07-12_prepare-FRAP-csv>python prepareCSVforeasyFRAP.py --inputDir .\02-CSVs_from_Fiji\WT\ --outputDir .\03-CSVs_processed_for_easyFRAPweb\WT\ --bleachFrameNumber 3`
 
 
 Example without a bleaching frame but with timepoints every 5 seconds:
+
 `(pandas) D:\Will\2022-07-12_prepare-FRAP-csv>python prepareCSVforeasyFRAP.py --inputDir .\02-CSVs_from_Fiji\WT\ --outputDir .\03-CSVs_processed_for_easyFRAPweb\WT\ --frameInterval 5`
