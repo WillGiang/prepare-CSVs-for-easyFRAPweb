@@ -6,7 +6,7 @@ import argparse
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument("--inputDir", help="Input directory of CSVs from ImageJ/FIJI to be processed")
 parser.add_argument("--outputDir", help="Output directory of processed CSVs for easyFRAPweb")
-parser.add_argument("--bleachFrameNumber", help="Frame number corresponding to the bleaching, starting from 0", default=3)
+parser.add_argument("--bleachFrameNumber", help="Frame number corresponding to the bleaching, starting from 0", default=None)
 parser.add_argument("--frameInterval", help="Time between timepoints (assumed to be seconds)", default=10)
 
 if len(sys.argv)==1:
@@ -15,7 +15,7 @@ if len(sys.argv)==1:
 
 args = parser.parse_args()
 
-def prepareCSVforeasyFRAP(CSV, bleach_frame_number = 3, FRAME_INTERVAL = 10):
+def prepareCSVforeasyFRAP(CSV, bleach_frame_number = None, FRAME_INTERVAL = 10):
     """
     Process a CSV file for easyFRAPweb.
 
@@ -26,7 +26,7 @@ def prepareCSVforeasyFRAP(CSV, bleach_frame_number = 3, FRAME_INTERVAL = 10):
     ----------
     CSV : str
         Full path to a CSV file created from ImageJ/FIJI
-    bleach_frame_number : int, default 3
+    bleach_frame_number : int, default None
         Timepoint corresponds to the bleaching frame, starting from 0
     FRAME_INTERVAL : int, default 10
         Time interval during imaging experiment
@@ -59,8 +59,10 @@ def prepareCSVforeasyFRAP(CSV, bleach_frame_number = 3, FRAME_INTERVAL = 10):
         right_index = True,
         )
     
-    # Drop the bleach frame row because it isn't useful
-    df_merged = df_merged.drop(index = bleach_frame_number)    
+    if bleach_frame_number is not None:
+        assert isinstance(bleach_frame_number, int), f"integer expected for bleach frame number"
+        # Drop the bleach frame row because it isn't useful
+        df_merged = df_merged.drop(index = bleach_frame_number)    
 
     return df_merged
 

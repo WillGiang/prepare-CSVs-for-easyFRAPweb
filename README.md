@@ -30,11 +30,19 @@ options:
   --outputDir OUTPUTDIR
                         Output directory of processed CSVs for easyFRAPweb (default: None)
   --bleachFrameNumber BLEACHFRAMENUMBER
-                        Frame number corresponding to the bleaching, starting from 0 (default: 3)
+                        Frame number corresponding to the bleaching, starting from 0 (default: None)
   --frameInterval FRAMEINTERVAL
                         Time between timepoints (assumed to be seconds) (default: 10)
 ```
 
-Example:
-
+### Examples
+Example without a bleaching frame:
 `(pandas) D:\Will\2022-07-12_prepare-FRAP-csv>python prepareCSVforeasyFRAP.py --inputDir .\02-CSVs_from_Fiji\WT\ --outputDir .\03-CSVs_processed_for_easyFRAPweb\WT\`
+
+
+Example with a bleaching frame on after three pre-bleach timepoints:
+`(pandas) D:\Will\2022-07-12_prepare-FRAP-csv>python prepareCSVforeasyFRAP.py --inputDir .\02-CSVs_from_Fiji\WT\ --outputDir .\03-CSVs_processed_for_easyFRAPweb\WT\ --bleachFrameNumber 3`
+
+
+Example without a bleaching frame but with timepoints every 5 seconds:
+`(pandas) D:\Will\2022-07-12_prepare-FRAP-csv>python prepareCSVforeasyFRAP.py --inputDir .\02-CSVs_from_Fiji\WT\ --outputDir .\03-CSVs_processed_for_easyFRAPweb\WT\ --frameInterval 5`
